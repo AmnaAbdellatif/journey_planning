@@ -1,3 +1,5 @@
+import {useState,useEffect} from "react";
+import axios from 'axios';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
@@ -5,12 +7,10 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
- export const SearchBar= ({setSearchResult}) => {
+function SearchList() {
 
-  const [searchTerm, setSearchTerm] = useState('');
+const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
     useEffect(() => {
@@ -34,14 +34,19 @@ import axios from 'axios';
 
       }, [searchTerm]);
 
+
       function handleInputChange(event) {
         setSearchTerm(event.target.value);
         console.log(setSearchTerm);
       }
 
-    return (
-        <div>
-    <Paper
+return  (
+
+    <div>
+
+
+
+<Paper
       component="form"
       sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
     >
@@ -64,16 +69,41 @@ import axios from 'axios';
         <DirectionsIcon />
       </IconButton>
     </Paper>
-    { <ul>
-        {searchResults.map(result => (
-          <li key={result.id}>
-            {result.name}
-          </li>
-        ))}
-      </ul> }
-      
-    </div>
-  );
 
+
+{
+      searchResults.filter(post => {
+        if (searchTerm === '') {
+          return post;
+        } else if (post.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+          return post;
+        }
+      }).map((post, index) => (
+        <div className="box" key={index}>
+          <p>{post.name}</p>
+        </div>
+      ))
+      
+      
+      }
+
+    </div>
+
+
+    
+
+
+
+
+
+
+
+
+);
 
 }
+
+
+
+
+    export default SearchList;

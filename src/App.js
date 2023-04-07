@@ -1,8 +1,17 @@
-import SearchBar from './components/SearchBar';
+import {SearchBar} from './components/SearchBar';
+import React from 'react';
+import SearchList from './components/SearchList';
+
+
+
 function App() {
+console.log('hiii');
   return (
     <div className="App">
-      <SearchBar/>
+     <div className="search-bar-container">
+
+        <SearchList/>
+      </div>
     </div>
   );
 }
