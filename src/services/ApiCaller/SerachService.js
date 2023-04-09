@@ -1,32 +1,24 @@
-import ApiCaller from './ApiCaller/apiCaller'
-import { API_URL } from '../constants/const';
-
-
-export const getLocationId = (url, data) => {
-    return new Promise((resolve, reject) => {
-            ApiCaller.post(API_URL + url, data)
-            .then((response) => {
-              
-              resolve(response.data);
-            })
-            .catch((error) => {
-                console.error('ERROR')
-            });
-    });
-  };
-
+import ApiCaller from './apiCaller';
+import { API_URL } from '../../constants/const';
   
-  export const getLocationData = (url) => {
+  export const getLocationData = (language,outputFormat,type_sf,name_sf) => {
+
     return new Promise((resolve, reject) => {
-            ApiCaller.get(API_URL + url)
+            ApiCaller.get(API_URL, {params:{ language: language, outputFormat: outputFormat,type_sf:type_sf,name_sf:name_sf }})
             .then((response) => {
-              resolve(response.data);
+              console.log('avant return',response.data.locations);
+              resolve(response.data.locations);
+              
             })
             .catch((error) => {
-                console.error('ERROR')
+                console.error('ERROR');
+                console.log('erreur',error);
             });
     });
   };
+
+
+
 
 
 
