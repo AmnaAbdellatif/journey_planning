@@ -2,13 +2,13 @@
 
 This web application's purpose is to create part of a journey planning app that assists the search for a starting point and displays stop/location matches in a map.
 
-●Developing the front end part using React JS.
+●Developing the front end part using React JS.  
 
-●Consuming the EFA Server using a request API
+●Consuming the EFA Server using a request API.  
 
-●Displays the start and stop points choosen by the user from a search bar .
+●Displays the start and stop points choosen by the user from a search bar .  
 
-●The app is responsive.
+●The app is responsive.  
 
 ## How to use?
 
