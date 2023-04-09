@@ -1,4 +1,4 @@
-###Journey planning App
+#journey_planning
 
 This web application's purpose is to create part of a journey planning app that assists the search for a starting point and displays stop/location matches in a map.
 
@@ -29,3 +29,6 @@ yarn start
 ```
 
 ## Preview
+
+*** Screen Application***
+![1](https://github.com/AmnaAbdellatif/journey_planning/blob/master/ticket%20shop.PNG)
